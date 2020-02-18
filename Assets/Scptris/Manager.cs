@@ -6,27 +6,7 @@ using UnityEngine;
 public class Manager : MonoBehaviour
 {
 
-   
-
-    private void Awake()
-    {
-        StartDeal();
-    }
-
-    private void StartDeal()
-    {
-        
-    }
-
-    void Start()
-    {
-        
-    }
-
     
-    void Update()
-    {
-        
-    }
+  
 
 }

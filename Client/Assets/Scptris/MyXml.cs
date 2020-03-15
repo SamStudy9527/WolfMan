@@ -4,15 +4,36 @@ using System;
 using System.Linq;
 using UnityEngine;
 using System.Xml.Linq;
+using System.Xml;
 
 public class MyXml : MonoBehaviour
 {
-    
+
+    public string positionStr;
 
     private void Start()
     {
-        WriteXml();
+        ReadXml();
+        //WriteXml();
         //InputXml();
+    }
+
+    private void ReadXml()
+    {
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.Load("PositionData.xml");
+        XmlNode xn = xmlDoc.SelectSingleNode("Persons");
+        XmlNode xnl = xn.SelectSingleNode("刷新点1");
+        XmlNodeList xn2 = xnl.ChildNodes;
+        foreach (XmlNode node in xn2)
+        {
+            Debug.Log("name:" + node.Name);
+            if (node.Name == "位置信息") 
+            {
+                positionStr += node.InnerText;
+                Debug.Log("name:" + node.Name + "node的值" + node.InnerText);
+            }
+        }
     }
 
     private void InputXml()
